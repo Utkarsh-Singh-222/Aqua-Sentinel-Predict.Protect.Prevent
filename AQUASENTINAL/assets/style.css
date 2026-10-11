@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ==========================================================================
+   THEME DEFINITIONS: CYBER DARK (DEFAULT) & GLACIER LIGHT
+   ========================================================================== */
+:root {
+    /* Fonts */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+
+    /* Transition */
+    --theme-transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 🌙 CYBER DARK THEME */
+:root, .dark-theme {
+    --bg-main: #060B18;
+    --bg-mesh: radial-gradient(circle at 10% 20%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
+               radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+               linear-gradient(180deg, #060B18 0%, #030610 100%);
+    --bg-sec: #0A1329;
+    --bg-sidebar: #070E22;
+    --card-bg: rgba(12, 24, 51, 0.65);
+    --card-bg-hover: rgba(16, 32, 68, 0.85);
+    --card-border: rgba(0, 240, 255, 0.14);
+    --card-hover-border: rgba(0, 240, 255, 0.45);
+    --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    --card-glow: 0 0 25px rgba(0, 240, 255, 0.15);
+    
+    --text-main: #F1F6FD;
+    --text-muted: #8EA5C8;
+    --text-faint: #526888;
+    
+    --primary: #00F0FF;
+    --primary-light: #38BDF8;
+    --primary-glow: rgba(0, 240, 255, 0.35);
+    --secondary: #3B82F6;
+    --secondary-glow: rgba(59, 130, 246, 0.3);
+    
+    --safe: #10B981;
+    --safe-glow: rgba(16, 185, 129, 0.25);
+    --caution: #F59E0B;
+    --caution-glow: rgba(245, 158, 11, 0.25);
+    --danger: #FF3366;
+    --danger-glow: rgba(255, 51, 102, 0.3);
+    
+    --pill-bg: rgba(0, 240, 255, 0.08);
+    --input-bg: rgba(10, 20, 44, 0.8);
+    --input-border: rgba(0, 240, 255, 0.2);
+    --scrollbar-thumb: #1E2E4E;
+}
+
+/* ☀️ GLACIER LIGHT THEME */
+.light-theme {
+    --bg-main: #F4F7FC;
+    --bg-mesh: radial-gradient(circle at 10% 10%, rgba(2, 132, 199, 0.06) 0%, transparent 40%),
+               radial-gradient(circle at 90% 90%, rgba(14, 165, 233, 0.06) 0%, transparent 40%),
+               linear-gradient(180deg, #F8FAFC 0%, #EDF2F7 100%);
+    --bg-sec: #FFFFFF;
+    --bg-sidebar: #F8FAFD;
+    --card-bg: rgba(255, 255, 255, 0.88);
+    --card-bg-hover: #FFFFFF;
+    --card-border: rgba(2, 132, 199, 0.18);
+    --card-hover-border: rgba(2, 132, 199, 0.5);
+    --card-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+    --card-glow: 0 0 20px rgba(2, 132, 199, 0.12);
+    
+    --text-main: #0B1528;
+    --text-muted: #4B6180;
+    --text-faint: #8A9BB3;
+    
+    --primary: #0284C7;
+    --primary-light: #0EA5E9;
+    --primary-glow: rgba(2, 132, 199, 0.25);
+    --secondary: #2563EB;
+    --secondary-glow: rgba(37, 99, 235, 0.2);
+    
+    --safe: #059669;
+    --safe-glow: rgba(5, 150, 105, 0.2);
+    --caution: #D97706;
+    --caution-glow: rgba(217, 119, 6, 0.2);
+    --danger: #E11D48;
+    --danger-glow: rgba(225, 29, 72, 0.25);
+    
+    --pill-bg: rgba(2, 132, 199, 0.08);
+    --input-bg: #FFFFFF;
+    --input-border: rgba(2, 132, 199, 0.25);
+    --scrollbar-thumb: #CBD5E1;
+}
+
+/* ==========================================================================
+   GLOBAL TYPOGRAPHY & STREAMLIT OVERRIDES
+   ========================================================================== */
+html, body, .stApp {
+    font-family: var(--font-body) !important;
+    color: var(--text-main) !important;
+    background: var(--bg-mesh) !important;
+    background-attachment: fixed !important;
+    min-height: 100vh;
+    transition: var(--theme-transition);
+}
+
+h1, h2, h3, h4, h5, h6, .gradient-text {
+    font-family: var(--font-heading) !important;
+    letter-spacing: -0.02em !important;
+    color: var(--text-main) !important;
+}
+
+h1 {
+    font-weight: 800 !important;
+    font-size: 2.1rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+h2 {
+    font-weight: 700 !important;
+    font-size: 1.6rem !important;
+}
+
+h3 {
+    font-weight: 600 !important;
+    font-size: 1.25rem !important;
+}
+
+p, span, label, div {
+    font-family: var(--font-body);
+}
+
+/* Numeric & Monospace Elements */
+.kpi-value, .stat-number, .mono-data {
+    font-family: var(--font-mono) !important;
+    letter-spacing: -0.03em !important;
+}
+
+/* Preserving Material/Phosphor/Bootstrap Icons */
+[class*="material"], [data-testid*="Icon"], i, svg, .material-symbols-rounded, .material-icons {
+    font-family: "Material Symbols Rounded", "Material Icons", sans-serif !important;
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   SIDEBAR STYLING & PINNED ZERO-GAP HEADER
+   ========================================================================== */
+.stSidebar, section[data-testid="stSidebar"] {
+    background: var(--bg-sidebar) !important;
+    border-right: 1px solid var(--card-border) !important;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15) !important;
+    top: 0 !important;
+    padding-top: 0 !important;
+    transition: var(--theme-transition);
+}
+
+section[data-testid="stSidebar"] > div:first-child,
+[data-testid="stSidebarContent"],
+[data-testid="stSidebarUserContent"],
+.stSidebar [data-testid="stVerticalBlock"] {
+    padding-top: 0.65rem !important;
+}
+
+/* Completely kill collapse toggle / header artifacts */
+[data-testid="stSidebarHeader"],
+[data-testid="stSidebarCollapseButton"],
+button[data-testid="stSidebarCollapseButton"],
+button[aria-label="Close sidebar"],
+button[data-testid="baseButton-header"],
+div[data-testid="stSidebarHeader"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0px !important;
+    max-height: 0px !important;
+    min-height: 0px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    overflow: hidden !important;
+}
+
+/* Hide default multipage navigation */
+[data-testid="stSidebarNav"],
+[data-testid="stSidebarNavItems"],
+[data-testid="stSidebarNavSeparator"],
+nav[data-testid="stSidebarNav"],
+div[data-testid="stSidebarNav"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0px !important;
+    max-height: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    overflow: hidden !important;
+}
+
+/* Hide Default Streamlit Chrome */
+#MainMenu, footer, .stDeployButton {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* ==========================================================================
+   PREMIUM GLASSMORPHIC CARDS & HERO BANNER
+   ========================================================================== */
+.glass-card {
+    background: var(--card-bg) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid var(--card-border) !important;
+    border-radius: 16px !important;
+    padding: 1.25rem 1.4rem !important;
+    margin-bottom: 1rem !important;
+    box-shadow: var(--card-shadow) !important;
+    transition: var(--theme-transition) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card:hover {
+    transform: translateY(-3px) scale(1.005);
+    background: var(--card-bg-hover) !important;
+    border-color: var(--card-hover-border) !important;
+    box-shadow: var(--card-shadow), var(--card-glow) !important;
+}
+
+/* Neon Top Border Accent for Hero / Focus Cards */
+.glass-card.accent-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    box-shadow: 0 0 12px var(--primary-glow);
+}
+
+/* Hero Banner */
+.hero-banner {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 1.6rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   FUTURISTIC KPI STAT METRIC CARDS
+   ========================================================================== */
+.kpi-card-v2 {
+    background: var(--card-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.2rem 1.3rem;
+    box-shadow: var(--card-shadow);
+    transition: var(--theme-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card-v2:hover {
+    transform: translateY(-3px);
+    border-color: var(--card-hover-border);
+    box-shadow: var(--card-shadow), var(--card-glow);
+}
+
+.kpi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+}
+
+.kpi-icon-pill {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--pill-bg);
+    border: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.kpi-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-main);
+    margin: 0.3rem 0;
+}
+
+.kpi-delta-pill {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-top: 4px;
+}
+
+.kpi-delta-pill.up {
+    color: var(--safe);
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.kpi-delta-pill.down {
+    color: var(--danger);
+    background: rgba(255, 51, 102, 0.12);
+    border: 1px solid rgba(255, 51, 102, 0.25);
+}
+
+.kpi-subtext {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-left: 6px;
+}
+
+/* ==========================================================================
+   ALERT CARDS & SEVERITY STRIPS
+   ========================================================================== */
+.alert-card-v2 {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    border: 1px solid var(--card-border);
+    border-left-width: 5px;
+    box-shadow: var(--card-shadow);
+    transition: var(--theme-transition);
+}
+
+.alert-card-v2:hover {
+    transform: translateX(4px);
+    border-color: var(--card-hover-border);
+}
+
+.alert-card-v2.critical {
+    border-left-color: var(--danger);
+    background: linear-gradient(90deg, rgba(255, 51, 102, 0.08) 0%, var(--card-bg) 40%);
+}
+
+.alert-card-v2.high {
+    border-left-color: var(--caution);
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.08) 0%, var(--card-bg) 40%);
+}
+
+.alert-card-v2.medium {
+    border-left-color: var(--primary-light);
+    background: linear-gradient(90deg, rgba(56, 189, 248, 0.08) 0%, var(--card-bg) 40%);
+}
+
+.alert-card-v2.low {
+    border-left-color: var(--safe);
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.08) 0%, var(--card-bg) 40%);
+}
+
+/* ==========================================================================
+   STATUS BADGES & PULSING BEACONS
+   ========================================================================== */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    background: var(--pill-bg);
+    border: 1px solid var(--card-border);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.pulsing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--safe);
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.chip-tag {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-right: 6px;
+}
+
+.chip-tag.red { background: rgba(255, 51, 102, 0.15); color: var(--danger); border: 1px solid rgba(255, 51, 102, 0.3); }
+.chip-tag.amber { background: rgba(245, 158, 11, 0.15); color: var(--caution); border: 1px solid rgba(245, 158, 11, 0.3); }
+.chip-tag.green { background: rgba(16, 185, 129, 0.15); color: var(--safe); border: 1px solid rgba(16, 185, 129, 0.3); }
+.chip-tag.cyan { background: rgba(0, 240, 255, 0.15); color: var(--primary); border: 1px solid rgba(0, 240, 255, 0.3); }
+
+/* ==========================================================================
+   BUTTONS, INPUTS, AND CONTROLS
+   ========================================================================== */
+.stButton > button {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
+    color: #060B18 !important;
+    font-family: var(--font-heading) !important;
+    font-weight: 700 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 0.55rem 1.4rem !important;
+    box-shadow: 0 4px 15px var(--primary-glow) !important;
+    transition: var(--theme-transition) !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 22px var(--primary-glow) !important;
+    opacity: 0.95 !important;
+}
+
+.stSelectbox div[data-baseweb="select"] > div,
+.stTextInput input,
+.stTextArea textarea {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--input-border) !important;
+    border-radius: 10px !important;
+    color: var(--text-main) !important;
+    transition: var(--theme-transition) !important;
+}
+
+.stSelectbox div[data-baseweb="select"] > div:focus-within,
+.stTextInput input:focus,
+.stTextArea textarea:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 2px var(--primary-glow) !important;
+}
+
+/* Tabs Styling */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px !important;
+    background: transparent !important;
+    border-bottom: 1px solid var(--card-border) !important;
+    padding-bottom: 4px !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background: var(--pill-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    border-radius: 10px !important;
+    padding: 8px 16px !important;
+    color: var(--text-muted) !important;
+    font-family: var(--font-heading) !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    transition: var(--theme-transition) !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.18), rgba(59, 130, 246, 0.18)) !important;
+    border-color: var(--primary) !important;
+    color: var(--text-main) !important;
+    box-shadow: 0 0 15px var(--primary-glow) !important;
+}
+
+/* Dataframe Styling */
+[data-testid="stDataFrame"] {
+    border-radius: 12px !important;
+    border: 1px solid var(--card-border) !important;
+    overflow: hidden !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Custom Footer */
+.custom-footer {
+    text-align: center;
+    padding: 24px 10px 10px 10px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+}
